@@ -1,0 +1,22 @@
+<main>
+  <article *ngFor="let hotel of hotels | testHotel">
+    <div class="hotel-card">
+      <div class="hotel-card-section-image">
+        <img src="{{hotel.image}}" style="height: 100%"/>
+      </div>
+      <div class="hotel-card-section-description">
+        <h4>{{hotel.name}}</h4>
+        <p>{{hotel.stars}}*</p>
+        <p>Sólo la habitación</p>
+        <p>#######</p>
+      </div>
+      <div class="hotel-card-section-more">
+        <p style="font-size: xx-small">Precio por noche por habitación</p>
+        <h3>ARS {{hotel.price}}</h3>
+        <p style="font-size: xx-small">Impuestos y tasas no incluidos</p>
+        <button class="btn btn-primary" type="button">Ver hotel</button>
+        <p style="font-size: x-small">Pagá en destino</p>
+      </div>
+    </div>
+  </article>
+</main>

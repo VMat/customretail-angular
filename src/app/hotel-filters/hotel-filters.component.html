@@ -1,0 +1,42 @@
+<aside>
+  <h4>Filtrar</h4>
+  <article>
+    <h5 class="filter-name">Nombre del hotel</h5>
+
+    <div class="input-group">
+      <input type="search" class="form-control" [(ngModel)]="inputName" placeholder="Ingrese el nombre del hotel">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" (click)="runFilters()" type="button">Aceptar</button>
+    </span>
+    </div>
+  </article>
+  <article *ngIf="priceRange!=undefined">
+    <h5 class="filter-name">Precio por noche</h5>
+    <div class="row">
+      <span style="float: left; margin-left: 5%">ARS {{priceRange.min}}</span>
+      <span style="float: right; margin-right: 5%">ARS {{priceRange.max}}</span>
+    </div>
+    
+    <div class='multi-range'>
+      <hr />
+      <input type='range' 
+         step="{{stepPrice}}" min="{{minPrice}}" max="{{maxPrice}}" [(ngModel)]="priceRange.min" (change)="runFilters()" 
+      />
+      <input type='range' 
+         step="{{stepPrice}}" min="{{minPrice}}" max="{{maxPrice}}" [(ngModel)]="priceRange.max" (change)="runFilters()"     
+      />
+    </div>
+
+  </article>
+  <article>
+    <h5 class="filter-name">Estrellas</h5>
+    <ul style="list-style-type: none; margin: 0; padding: 0;">
+      <li><label><input type="checkbox" [(ngModel)]="inputStars[STARS.ALL]" [disabled]="noStarsSelected()" [checked]="noStarsSelected()" (change)="runFilters()" (click)="setAllStars()"> Todas las estrellas</label></li>
+      <li><label><input type="checkbox" [(ngModel)]="inputStars[STARS.FIVE]" (change)="runFilters()"> * * * * *</label></li>
+      <li><label><input type="checkbox" [(ngModel)]="inputStars[STARS.FOUR]" (change)="runFilters()"> * * * *</label></li>
+      <li><label><input type="checkbox" [(ngModel)]="inputStars[STARS.THREE]" (change)="runFilters()"> * * *</label></li>
+      <li><label><input type="checkbox" [(ngModel)]="inputStars[STARS.TWO]" (change)="runFilters()"> * *</label></li>
+      <li><label><input type="checkbox" [(ngModel)]="inputStars[STARS.ONE]" (change)="runFilters()"> *</label></li>
+    </ul>
+  </article>
+</aside>

@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+  background:#eee;
+}
+
+aside {
+  float: left;
+  width: 25%;
+  margin-left: 2.5%;
+}
+
+main {
+  float: right;
+  width: 70%;
+  margin-right: 2.5%;
+}
+
+article {
+  background: #fff;
+  padding: 10px;
+  margin: 1%
+}
+
+/* para 980px o menos */
+@media only screen and (max-width:992px), only screen and (max-device-width: 1000px){
+
+  aside,main {
+    float:none;
+    width:96%;
+  }
+
+  main{
+    margin-left: 2.5%;
+  }
+
+  aside {
+    margin-top:5px;
+  }
+}
